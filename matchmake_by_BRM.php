@@ -110,6 +110,21 @@ if ($affected_row == 0) {
             $statement3->bindParam(":ServerPort", $result_json->data->ServerPort);
             $statement3->execute();
         }
+    } else {
+//        header('Content-Type: application/json');
+
+        $matchmaking_result = array(
+            'GameID' => "",
+            'DeviceId' => "",
+            'SessionTicket' => "",
+            'ServerHostname' => "",
+            'ServerPort' => intval(0),
+            'error' => 1,
+            'message' => 'Error: Matchmake failed to start game instance.'
+        );
+        return $matchmaking_result;
+//        echo json_encode($matchmaking_result);        
+//        die;
     }
     
     goto lblupdate;

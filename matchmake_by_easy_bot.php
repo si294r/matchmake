@@ -72,17 +72,20 @@ if ($row === FALSE) {
         $statement3->execute();
         
     } else {
-        header('Content-Type: application/json');
+//        header('Content-Type: application/json');
 
         $matchmaking_result = array(
             'GameID' => "",
+            'DeviceId' => "",
+            'SessionTicket' => "",
             'ServerHostname' => "",
             'ServerPort' => intval(0),
             'error' => 1,
             'message' => 'Error: Matchmake failed to start game instance.'
         );
-        echo json_encode($matchmaking_result);        
-        die;
+        return $matchmaking_result;
+//        echo json_encode($matchmaking_result);        
+//        die;
     }
 
 } else {
